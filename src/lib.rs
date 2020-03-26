@@ -292,7 +292,7 @@ impl<'a> SenseHat<'a> {
         // Get the default `FontCollection`.
         let fonts = sensehat_screen::FontCollection::new();
         // Create a sanitized `FontString`.
-        let sanitized = fonts.sanitize_str(message)?;
+        let sanitized = fonts.sanitize_str(message).expect("Couldn't sanitize string");
         // Render the `FontString` as a vector of pixel frames.
         let pixel_frames = sanitized.pixel_frames(fg.into().0, bg.into().0);
         // Create a `Scroll` from the pixel frame vector.
